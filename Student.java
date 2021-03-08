@@ -6,7 +6,7 @@ public class Student {
   private int gradeYear;
   private String studentId;
   private String courses;
-  private int balance;
+  private int balance = 0;
   // static is true to all objects, not just the instance. 
   private static int costOfCourse = 600;
   private static int id = 1001;
@@ -36,6 +36,18 @@ public class Student {
     // add "" makes the whole statement come back as a string
     id++; 
     this.studentId = gradeYear + "" + id;
-
   }
+
+  public void enroll() {
+    System.out.println("Enter course to enroll (Q to quit): ");
+    Scanner in = new Scanner(System.in);
+    String course = in.nextLine();
+    if (course != "Q") {
+      courses = course + "\n" + course;
+      balance = balance + costOfCourse;
+    }
+    System.out.println("ENROLLED IN: " + courses);
+  System.out.println("TUITION BALANCE: " + balance);
+  }
+  
 }
