@@ -4,10 +4,12 @@ public class Student {
   private String firstName;
   private String lastName;
   private int gradeYear;
-  private int studentId;
+  private String studentId;
   private String courses;
   private int balance;
-  private int costOfCourse = 600;
+  // static is true to all objects, not just the instance. 
+  private static int costOfCourse = 600;
+  private static int id = 1001;
 
     //constructor: asks user for name and year.
   public Student() {
@@ -20,5 +22,20 @@ public class Student {
 
       System.out.print("Enter student year (1-4): ");
       this.gradeYear = in.nextInt();
+
+      setStudentID();
+
+      System.out.println(firstName + " " + lastName + " " + "Year: " + gradeYear + " " + "id: " + studentId ) ;
+
+      
+      
+  }
+
+  private void setStudentID() {
+    // grade level +ID
+    // add "" makes the whole statement come back as a string
+    id++; 
+    this.studentId = gradeYear + "" + id;
+
   }
 }
